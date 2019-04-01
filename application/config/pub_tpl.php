@@ -1,0 +1,166 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/*
+| -------------------------------------------------------------------
+| SHANG
+| -------------------------------------------------------------------
+| This file contains four arrays of user agent data. It is used by the
+| User Agent Class to help identify browser, platform, robot, and
+| mobile device data. The array keys are used to identify the device
+| and the array values are used to set the actual name of the item.
+*/
+
+$config = [
+    'tpl_1' => [
+        'task_type' => 'DUOTIAN',
+        'template_id' => '',
+        'task_days' => 2,
+        'task_way_1' => 1,
+        'op_flow_1' => '例：搜索“男立领宽松加厚夹克”，并按指定步骤完成第一日任务要求 （*文案仅供参考，需要商家自行填写）',
+        'method_outer_1' => [1,2,5,6,10],
+        'task_way_2' => 3,
+        'op_flow_2' => '例：搜索关键词“男加厚夹克”货比三家，按步骤要求完成对应截图内容，10分钟后进入购物车浏览主宝贝完成要求步骤 （*文案仅供参考，需要商家自行填写）',
+        'method_outer_2' => [1,5,8,12],
+        'is_coupon' => null,
+        'order_place' => '',
+        'sku' => '任意',
+        'task_capital' => '',
+        'num_of_pkg' => '',
+        'task_cnt' => '',
+        'is_blacklist' => 1,
+        'is_preferred' => 'na',
+        'is_huabei' => 'na',
+        'sex_limit' => 'na',
+        'age_limit' => 'na',
+        'tb_rate_limit' => 'na',
+        'taskPlanDay' => '不限制',
+        'start_time' => '',
+        'end_time' => '',
+        'hand_out_interval' => 30,
+        'express_type' => 'na',
+        'comment_type' => 1,
+//        'seller_id' => 0,
+//        'commission_discount' => 0,
+//        'single_task_capital' => 0,
+//        'is_express' => 'na',
+//        'single_task_express' => 0,
+//        'single_task_commission' => 0,
+//        'single_task_commission_paid' => 0,
+//        'commission_to_buyer' => 0,
+//        'commission_to_platform' => 0,
+//        'service_to_platform' => 0,
+//        'fee_order_total_capital' => 0,
+//        'fee_order_total_commission' => 0,
+//        'fee_order_total_express' => 0,
+    ],
+
+    'tpl_2' => [
+        'task_type' => 'DUOTIAN',
+        'template_id' => '',
+        'task_days' => 3,
+        'task_way_1' => 1,
+        'op_flow_1' => '例：搜索“男立领宽松加厚夹克”，并按指定步骤完成第一日任务要求 （*文案仅供参考，需要商家自行填写）',
+        'method_outer_1' => [1,2,5,6,10],
+        'task_way_2' => 3,
+        'op_flow_2' => '例：搜索关键词“男加厚夹克”货比三家，按步骤要求完成对应截图内容，10分钟后进入购物车浏览主宝贝完成要求步骤',
+        'method_outer_2' => [1,5,7,8,12],
+        'task_way_3' => 1,
+        'op_flow_3' => '例：首页下拉找男夹克类目，货比三家，分时间段进出搜索浏览2次，完成以下步骤要求',
+        'method_outer_3' => [5,10,12,18],
+        'is_coupon' => null,
+        'order_place' => null,
+        'sku' => '任意',
+        'task_capital' => null,
+        'num_of_pkg' => null,
+        'task_cnt' => null,
+        'is_blacklist' => 1,
+        'is_preferred' => 'na',
+        'is_huabei' => 'na',
+        'sex_limit' => 'na',
+        'age_limit' => 'na',
+        'tb_rate_limit' => 'na',
+        'taskPlanDay' => '不限制',
+        'start_time' => '',
+        'end_time' => '',
+        'hand_out_interval' => 30,
+        'express_type' => 'na',
+        'comment_type' => 1
+    ],
+
+    'tpl_3' => [
+        'task_type' => 'DUOTIAN',
+        'template_id' => '',
+        'task_days' => 3,
+        'task_way_1' => 1,
+        'op_flow_1' => '例：搜索“男立领宽松加厚夹克”，并按指定步骤完成第一日任务要求 （*文案仅供参考，需要商家自行填写）',
+        'method_outer_1' => [1,2,5,10],
+        'task_way_2' => 4,
+        'op_flow_2' => '例：收藏夹先进主宝贝浏览几分钟，再去首页搜索关键词“男夹克”货比三家，按步骤要求完成对应截图内容',
+        'method_outer_2' => [1,3,5,12,15],
+        'task_way_3' => 3,
+        'op_flow_3' => '例：首页下拉找男夹克类目，浏览几个，要是能找到我们主宝贝直接进入加购物车，若是找不到，进入收藏夹或者购物车进行下单，完成以下指定任务',
+        'method_outer_3' => [5,6,10,12,18],
+        'is_coupon' => null,
+        'order_place' => null,
+        'sku' => '任意',
+        'task_capital' => null,
+        'num_of_pkg' => null,
+        'task_cnt' => null,
+        'is_blacklist' => 1,
+        'is_preferred' => 'na',
+        'is_huabei' => 'na',
+        'sex_limit' => 'na',
+        'age_limit' => 'na',
+        'tb_rate_limit' => 'na',
+        'taskPlanDay' => '不限制',
+        'start_time' => '',
+        'end_time' => '',
+        'hand_out_interval' => 30,
+        'express_type' => 'na',
+        'comment_type' => 1
+    ],
+
+    'tpl_4' => [
+        'task_type' => 'DUOTIAN',
+        'template_id' => '',
+        'task_days' => 4,
+        'task_way_1' => 1,
+        'op_flow_1' => '例：搜索“男立领宽松加厚夹克”，并按指定步骤完成第一日任务要求 （*文案仅供参考，需要商家自行填写）',
+        'method_outer_1' => [1,10,12,15],
+        'task_way_2' => 4,
+        'op_flow_2' => '例：收藏夹先进主宝贝浏览几分钟，再去首页搜索关键词“男夹克”货比三家，按步骤要求完成对应截图内容',
+        'method_outer_2' => [1,3,5,7,12],
+        'task_way_3' => 3,
+        'op_flow_3' => '例：首页下拉找男夹克类目，浏览几个，要是能找到我们主宝贝直接进入加购物车',
+        'method_outer_3' => [1,2,6,10,12,18],
+        'task_way_4' => 3,
+        'op_flow_4' => '例：首页下拉找男夹克类目，浏览几个，要是能找到我们主宝贝直接进入加购物车，直接下单，若是找不到就去购物车下单',
+        'method_outer_4' => [3,5,7,10],
+        'is_coupon' => null,
+        'order_place' => null,
+        'sku' => '任意',
+        'task_capital' => null,
+        'num_of_pkg' => null,
+        'task_cnt' => null,
+        'is_blacklist' => 1,
+        'is_preferred' => 'na',
+        'is_huabei' => 'na',
+        'sex_limit' => 'na',
+        'age_limit' => 'na',
+        'tb_rate_limit' => 'na',
+        'taskPlanDay' => '不限制',
+        'start_time' => '',
+        'end_time' => '',
+        'hand_out_interval' => 30,
+        'express_type' => 'na',
+        'comment_type' => 1
+    ],
+
+
+];
+
+
+
+
+
