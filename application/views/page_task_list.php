@@ -125,7 +125,7 @@
     </div>
 </div>
 
-<?php if (!empty($data)):?>
+<?php if (!empty($data) && $task_type != 'LIULIANG'):?>
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
@@ -325,6 +325,8 @@
                                 <td>
                                     <?php if ($v->status == Taskengine::TASK_STATUS_MJSH || $v->status == Taskengine::TASK_STATUS_HPSH) : ?>
                                         <a href="<?php echo base_url('task/details?task_id=' . encode_id($v->id) . '&task_type=' . $task_type); ?>" class="btn btn-sm btn-info">审核</a>
+                                    <?php elseif($v->status == Taskengine::TASK_JIES) : ?>
+                                        <a href="<?php echo base_url('task/jies?buyer_id=' . $v->buyer_id . '&single_task_commission=' . $v->single_task_commission.'&task_id='.$v->id); ?>" class="btn btn-sm btn-info">打款</a>
                                     <?php else: ?>
                                         <a href="<?php echo base_url('task/details?task_id=' . encode_id($v->id) . '&task_type=' . $task_type); ?>" class="btn btn-sm btn-success">详情</a>
                                     <?php endif; ?>

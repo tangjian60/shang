@@ -54,8 +54,8 @@ define('PLATFORM_TYPE_JD', 2);
 define('PLATFORM_TYPE_PINDUODUO', 3);
 define('PLATFORM_TYPE_AMAZON', 4);
 
-define('CDN_DOMAIN', '//cdn.zcm889.test.com');
-define('CDN_BINARY_URL', '//cdn.zcm889.test.com/binary/');
+define('CDN_DOMAIN', 'http://buyc.com/');
+define('CDN_BINARY_URL', 'http://buyc.com/binary/');
 define('HELP_LINK', 'http://help.zcm889.test.com/');
 
 define('REDIS_SERVER', 'redis.zcm889.test.com');
@@ -125,7 +125,8 @@ define('STATUS_CHECKING', 2);
 define('STATUS_FAILED', 3);
 define('STATUS_CANCEL', 4);
 define('STATUS_BAN', 5);
-
+define('STATUS_REMITING', 21);
+define('STATUS_CANCELING', 22);
 define('BTN_TYPE_LOGOUT', 1);
 define('BTN_TYPE_BACK', 2);
 

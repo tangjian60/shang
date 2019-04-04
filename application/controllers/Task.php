@@ -348,7 +348,36 @@ class Task extends Hilton_Controller
         }
         $this->load->view('frame_main', $this->Data);
     }
-
+    /**
+     * $task_id 子任务id
+     * $buyer_id 买家id
+     * $single_task_commission 佣金
+     * @return [type] [description]
+     */
+    public function jies($task_id=0,$buyer_id=0,$single_task_commission=0){
+        $buyer_id = $this->input->get('buyer_id', TRUE);
+        $task_id = $this->input->get('task_id', TRUE);
+        $resu = $this->taskengine->get_liuliang_task_info(decode_id($task_id));
+        $this->Data['buyer_id'] = $buyer_id;
+        $this->Data['task'] = $resu;
+        $this->Data['single_task_commission'] = $this->input->get('single_task_commission', TRUE);
+        if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+           $task_id = $this->input->post('task_id', TRUE);
+           $single = $this->input->post('single', TRUE);
+           if($this->paycore->pay_commission($this->get_seller_id(), $single, $task_id)!= Paycore::PAY_CODE_SUCCESS){
+            die(build_response_str(CODE_PAY_FAILED, "支付佣金失败，请联系客服处理"));
+           }else{
+            if($this->taskengine->update_task_status($task_id,Taskengine::TASK_STATUS_YWC,TASK_TYPE_LL)){
+                die(build_response_str(CODE_SUCCESS, "支付成功"));
+            }else{
+                die(build_response_str(CODE_PAY_FAILED, "支付佣金失败，请联系客服处理"));
+            }
+           }
+        } 
+        $this->Data['TargetPage'] = 'page_jies_liuliang';
+        $this->Data['nick_info'] = $this->hiltoncore->get_user_cert_info($buyer_id);
+        $this->load->view('frame_main', $this->Data);
+    }
     public function pub_dt()
     {
         // TODO...

@@ -34,6 +34,7 @@ class Taskengine extends Hilton_Model
     const TASK_STATUS_XTGB = 13;
     const TASK_STATUS_XTGB_DT = 14;
     const TASK_STATUS_SSZ = 20;
+    const TASK_JIES = 16;
 
     private static $TASK_STATUS = array(
         self::TASK_STATUS_DZF => "待支付",
@@ -52,6 +53,7 @@ class Taskengine extends Hilton_Model
         self::TASK_STATUS_XTGB => "商家审核拒绝，买家不操作，系统关闭订单",
         self::TASK_STATUS_XTGB_DT => "未及时操作关闭任务",
         self::TASK_STATUS_SSZ  => "申诉中",
+        self::TASK_JIES  => "待打款",
     );
 
     function __construct()
