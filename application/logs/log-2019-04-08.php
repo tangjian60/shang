@@ -1838,3 +1838,91 @@ INFO - 2019-04-08 07:35:45 --> File loaded: E:\PHPTutorial\WWW\dev\shang\applica
 INFO - 2019-04-08 07:35:45 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\frame_main.php
 INFO - 2019-04-08 07:35:45 --> Final output sent to browser
 DEBUG - 2019-04-08 07:35:45 --> Total execution time: 0.2983
+INFO - 2019-04-08 08:02:35 --> Config Class Initialized
+INFO - 2019-04-08 08:02:35 --> Hooks Class Initialized
+DEBUG - 2019-04-08 08:02:35 --> UTF-8 Support Enabled
+INFO - 2019-04-08 08:02:35 --> Utf8 Class Initialized
+INFO - 2019-04-08 08:02:35 --> URI Class Initialized
+INFO - 2019-04-08 08:02:35 --> Router Class Initialized
+INFO - 2019-04-08 08:02:35 --> Output Class Initialized
+INFO - 2019-04-08 08:02:35 --> Security Class Initialized
+DEBUG - 2019-04-08 08:02:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-08 08:02:35 --> Input Class Initialized
+INFO - 2019-04-08 08:02:35 --> Language Class Initialized
+INFO - 2019-04-08 08:02:35 --> Loader Class Initialized
+INFO - 2019-04-08 08:02:35 --> Helper loaded: url_helper
+INFO - 2019-04-08 08:02:35 --> Helper loaded: common_helper
+INFO - 2019-04-08 08:02:35 --> Database Driver Class Initialized
+INFO - 2019-04-08 08:02:35 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-08 08:02:35 --> Model Class Initialized
+INFO - 2019-04-08 08:02:35 --> Model Class Initialized
+INFO - 2019-04-08 08:02:35 --> Controller Class Initialized
+INFO - 2019-04-08 08:02:35 --> Model Class Initialized
+INFO - 2019-04-08 08:02:36 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\header.php
+INFO - 2019-04-08 08:02:36 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\fragment_navbar.php
+INFO - 2019-04-08 08:02:36 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\fragment_menu.php
+INFO - 2019-04-08 08:02:36 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\fragment_notice.php
+INFO - 2019-04-08 08:02:36 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\fragment_pagination.php
+INFO - 2019-04-08 08:02:36 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\page_task_list.php
+INFO - 2019-04-08 08:02:36 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\footer.php
+INFO - 2019-04-08 08:02:36 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\frame_main.php
+INFO - 2019-04-08 08:02:36 --> Final output sent to browser
+DEBUG - 2019-04-08 08:02:36 --> Total execution time: 0.3640
+INFO - 2019-04-08 08:02:38 --> Config Class Initialized
+INFO - 2019-04-08 08:02:38 --> Hooks Class Initialized
+DEBUG - 2019-04-08 08:02:38 --> UTF-8 Support Enabled
+INFO - 2019-04-08 08:02:38 --> Utf8 Class Initialized
+INFO - 2019-04-08 08:02:38 --> URI Class Initialized
+INFO - 2019-04-08 08:02:38 --> Router Class Initialized
+INFO - 2019-04-08 08:02:38 --> Output Class Initialized
+INFO - 2019-04-08 08:02:38 --> Security Class Initialized
+DEBUG - 2019-04-08 08:02:38 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-08 08:02:38 --> Input Class Initialized
+INFO - 2019-04-08 08:02:38 --> Language Class Initialized
+INFO - 2019-04-08 08:02:38 --> Loader Class Initialized
+INFO - 2019-04-08 08:02:38 --> Helper loaded: url_helper
+INFO - 2019-04-08 08:02:38 --> Helper loaded: common_helper
+INFO - 2019-04-08 08:02:38 --> Database Driver Class Initialized
+INFO - 2019-04-08 08:02:39 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-08 08:02:39 --> Model Class Initialized
+INFO - 2019-04-08 08:02:39 --> Model Class Initialized
+INFO - 2019-04-08 08:02:39 --> Controller Class Initialized
+INFO - 2019-04-08 08:02:39 --> Model Class Initialized
+INFO - 2019-04-08 08:02:39 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\header.php
+INFO - 2019-04-08 08:02:39 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\fragment_navbar.php
+INFO - 2019-04-08 08:02:39 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\fragment_menu.php
+INFO - 2019-04-08 08:02:39 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\fragment_notice.php
+INFO - 2019-04-08 08:02:39 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\page_jies_liuliang.php
+INFO - 2019-04-08 08:02:39 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\footer.php
+INFO - 2019-04-08 08:02:39 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\frame_main.php
+INFO - 2019-04-08 08:02:39 --> Final output sent to browser
+DEBUG - 2019-04-08 08:02:39 --> Total execution time: 0.2939
+INFO - 2019-04-08 08:12:47 --> Config Class Initialized
+INFO - 2019-04-08 08:12:47 --> Hooks Class Initialized
+DEBUG - 2019-04-08 08:12:47 --> UTF-8 Support Enabled
+INFO - 2019-04-08 08:12:47 --> Utf8 Class Initialized
+INFO - 2019-04-08 08:12:47 --> URI Class Initialized
+INFO - 2019-04-08 08:12:47 --> Router Class Initialized
+INFO - 2019-04-08 08:12:47 --> Output Class Initialized
+INFO - 2019-04-08 08:12:47 --> Security Class Initialized
+DEBUG - 2019-04-08 08:12:47 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-08 08:12:47 --> Input Class Initialized
+INFO - 2019-04-08 08:12:47 --> Language Class Initialized
+INFO - 2019-04-08 08:12:47 --> Loader Class Initialized
+INFO - 2019-04-08 08:12:47 --> Helper loaded: url_helper
+INFO - 2019-04-08 08:12:47 --> Helper loaded: common_helper
+INFO - 2019-04-08 08:12:47 --> Database Driver Class Initialized
+INFO - 2019-04-08 08:12:47 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-08 08:12:47 --> Model Class Initialized
+INFO - 2019-04-08 08:12:47 --> Model Class Initialized
+INFO - 2019-04-08 08:12:47 --> Controller Class Initialized
+INFO - 2019-04-08 08:12:47 --> Model Class Initialized
+INFO - 2019-04-08 08:12:47 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\header.php
+INFO - 2019-04-08 08:12:47 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\fragment_navbar.php
+INFO - 2019-04-08 08:12:47 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\fragment_menu.php
+INFO - 2019-04-08 08:12:47 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\fragment_notice.php
+INFO - 2019-04-08 08:12:47 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\page_jies_liuliang.php
+INFO - 2019-04-08 08:12:47 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\footer.php
+INFO - 2019-04-08 08:12:47 --> File loaded: E:\PHPTutorial\WWW\dev\shang\application\views\frame_main.php
+INFO - 2019-04-08 08:12:47 --> Final output sent to browser
+DEBUG - 2019-04-08 08:12:47 --> Total execution time: 0.3223
