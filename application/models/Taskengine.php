@@ -1283,7 +1283,7 @@ class Taskengine extends Hilton_Model
                 return false;
             }
             $this->add_oper_log($buyer_id, $seller_id, $seller_name, $oper_type, self::TASK_STATUS_YWC, "流量订单{$task_id}卖家审核已完成");
-            $this->db->set('status', self::TASK_STATUS_YWC);
+            $this->db->set('status', self::TASK_JIES);
             $this->db->where('id', $p['task_id']);
             return $this->db->update(self::DB_TASK_LIULIANG);
         } elseif ($p['task_type'] == TASK_TYPE_LL && $p['conclusion'] == SELLER_CONCLUSION_TASK_BAD) {

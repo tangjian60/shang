@@ -361,7 +361,7 @@ class Task extends Hilton_Controller
         $this->Data['buyer_id'] = $buyer_id;
         $this->Data['task'] = $resu;
         $this->Data['single_task_commission'] = $this->input->get('single_task_commission', TRUE);
-        if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+        if($this->input->is_ajax_request()){
            $task_id = $this->input->post('task_id', TRUE);
            $single = $this->input->post('single', TRUE);
            if($this->paycore->pay_commission($this->get_seller_id(), $single, $task_id)!= Paycore::PAY_CODE_SUCCESS){

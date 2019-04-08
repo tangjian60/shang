@@ -16,7 +16,7 @@
                     <div class="row row-0">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>任务类型: </label>
+                                <label>任务11类型: </label>
                                 <select class="form-control" name="task_type">
                                     <?php
                                     $task_array = array(
