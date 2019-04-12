@@ -271,6 +271,7 @@
                         <th>订单起止时间</th>
                         <th>接单淘宝账号</th>
                         <th>接单时间</th>
+                        <th>上传凭证</th>
                         <th>任务做单提交时间</th>
                         <th>快递单号</th>
                         <th>订单状态</th>
@@ -304,6 +305,12 @@
                                 <td><?php echo $v->start_time . ' - ' . $v->end_time; ?></td>
                                 <td><?php echo $v->buyer_tb_nick; ?></td>
                                 <td><?php echo $v->gmt_taking_task; ?></td>
+                                <td>
+                                    <div class="tieyu-icon image-upload-container" data-tid='<?php echo $v->id;?>'>
+                                    <img data-input-name="item_pic" class="image-upload" src="<?php echo empty($v->transfer_pic) ? CDN_BINARY_URL . 'cross.png' : CDN_DOMAIN . $v->transfer_pic; ?>">
+                                    <input type="hidden" name="item_pic" value="<?php echo empty($template_info) ? '' : $template_info->item_pic; ?>">
+                                    </div>
+                                </td>
                                 <td><?php echo $v->task_submit_time; ?></td>
                                 <td>
                                     <?php if (!empty($v->express_type) && $v->express_type == '圆通快递'){?>
@@ -344,6 +351,7 @@
                 </table>
                 <a id="btn-batch-cancel-task" href="javascript;" data-id="" data-url="<?php echo base_url('requests/cancel_task_handle'); ?>" data-task-type="<?php if (!empty($task_type)) echo $task_type; ?>" class="btn btn-sm btn-danger">批量撤销</a>
                 <a id="btn-batch-auditing-task" href="javascript;" data-id="" data-url="<?php echo base_url('requests/auditing_task'); ?>" data-task-type="<?php if (!empty($task_type)) echo $task_type; ?>" class="btn btn-sm btn-info">批量审核</a>
+                 <a id="btn-batch-jies-task" href="javascript;" data-id="" data-url="<?php echo base_url('task/pjie'); ?>" data-task-type="<?php if (!empty($task_type)) echo $task_type; ?>" class="btn btn-sm btn-info">批量打款</a>
             </div>
         </div>
     </div>
@@ -415,7 +423,17 @@
                 canel_task($(this).data('url'), ids, $(this).data('task-type'));
             }
         });
-
+         $('#btn-batch-jies-task').click(function (e) {
+            e.preventDefault();
+            var ids = get_task_ids();
+            if (ids.length == 0) {
+                alert('请先选择');
+                return;
+            }
+            if (confirm("确定要批量打款" + ids.length + "个吗")) {
+                canel_task($(this).data('url'), ids, $(this).data('task-type'));
+            }
+        });
         $('.btn-cancel-task').click(function (e) {
             e.preventDefault();
             if (confirm("确定要撤销该任务吗")) {
@@ -445,9 +463,12 @@
             format: 'yyyy-mm-dd hh:ii:00',
             autoclose: true
         });
-
+       $('.tieyu-icon').click(function(e){
+            bind_image_upload_event($(this).data('tid'));
+        })
         $(".fancybox").fancybox();
     });
+    
 </script>
 <link href="<?php echo CDN_BINARY_URL; ?>bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="<?php echo CDN_BINARY_URL; ?>bootstrap-datetimepicker.min.js"></script>

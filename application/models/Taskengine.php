@@ -447,13 +447,21 @@ class Taskengine extends Hilton_Model
         $this->db->limit(1);
         return $this->db->get(self::DB_TASK_PINDUODUO)->row();
     }
+    /**
+     * 取买家银行卡信息
+     */
+    function get_by_info($r){
+        $this->db->select(array('t.*','u.true_name','u.bank_card_num','u.bank_name','u.bank_branch','u.bank_province','u.bank_city'));
+        $this->db->where('t.parent_order_id', intval(decode_id($r['parent_order_id'])));
+        $this->db->join(self::DB_USER_CERT.' AS u','u.id = t.buyer_id', 'left');
+        return $this->db->get(self::DB_TASK_LIULIANG.' AS t')->result();
 
+    }
     function get_task_list($r)
     {
         if (empty($r['seller_id'])) {
             return null;
         }
-
         $tianfu_type = '';
         if (!empty($r['task_type']) && $r['task_type'] == TASK_TYPE_DF) {
             $db_name = self::DB_TASK_DIANFU;
@@ -556,7 +564,19 @@ class Taskengine extends Hilton_Model
         }
         return false;
     }
-
+    /**
+     * 批量更新
+     * @param  array  $tid        [description]
+     * @return [type]           [description]
+     */
+    function upp_task_status($tid=array()){
+        if(empty($tid)){
+            return false;
+        }
+        $this->db->set('status', self::TASK_STATUS_YWC);
+        $this->db->where_in('id',$tid);
+        return $this->db->update(self::DB_TASK_LIULIANG);
+    }
     function update_task_status_shenhe($i, $task_type, $status)
     {
         if (empty($i) || empty($task_type) || empty($status)) {

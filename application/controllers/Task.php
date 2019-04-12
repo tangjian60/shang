@@ -145,14 +145,14 @@ class Task extends Hilton_Controller
     }
 
     private function dump($data){
-            unset($data['i_page']);
-            $data['data'] = $this->taskengine->get_task_list($data);
+            unset($data['i_page']);//$this->hiltoncore->get_user_cert_info($buyer_id);
+            $data['data'] = $this->taskengine->get_by_info($data);
             $this->load->library('PHPExcel');
             $this->load->library('PHPExcel/IOFactory');
             $excel = new PHPExcel();
-            $charActors = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' , 'K', 'L', 'M', 'N', 'O', 'P']; //14
-            $widthSize = [5, 20, 20, 30, 70, 28, 18, 18, 18, 20, 15, 20, 14, 40, 30, 30]; //14
-            $titleName = ['ID', '父任务编号', '子任务编号', '宝贝标题', '宝贝链接', '店铺', '本金', '实付金额', '佣金', '放单时间', '接单账号', '接单时间', '订单状态', '订单编号' , '快递方式' , '快递单号' ]; //13
+            $charActors = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' , 'K', 'L', 'M', 'N', 'O', 'P','Q','R','S','T','U','V']; //14
+            $widthSize = [5, 20, 20, 30, 70, 28, 18, 18, 18, 20, 15, 20, 14, 40, 30, 30,15,20,20,30,20,30]; //14
+            $titleName = ['ID', '父任务编号', '子任务编号','宝贝标题', '宝贝链接', '店铺', '本金', '实付金额', '佣金', '放单时间', '接单账号', '接单时间', '订单状态', '订单编号' , '快递方式' , '快递单号','开户人','银行卡号','开户行','支行','省份','市区' ]; //13
 
             foreach ($charActors as $k => $v) {
                 $excel->getActiveSheet()->getStyle($v)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); //对齐方式，水平剧中
@@ -176,11 +176,9 @@ class Task extends Hilton_Controller
             ];
             $a = 2;
             foreach($data['data'] as $i=>$item){
-                $express_type = $item->express_type;
-                if ($item->express_type == 'na' || $item->express_type == '') {
+                $express_type = isset($item->express_type) ? $item->express_type : '圆通快递';
+                if ($express_type == 'na' || $express_type == '') {
                     $express_type = '商家快递';
-                }else{
-                    $express_type = '圆通快递';
                 }
                 $excel->getActiveSheet()->setCellValue('A' . $a, $i + 1);                                     //ID
                 $excel->getActiveSheet()->setCellValue('B' . $a, $data['parent_order_id']);                   //父任务编号
@@ -188,16 +186,22 @@ class Task extends Hilton_Controller
                 $excel->getActiveSheet()->setCellValue('D' . $a, $item->item_title);                          //宝贝标题
                 $excel->getActiveSheet()->setCellValue('E' . $a, $item->item_url);                            //宝贝链接
                 $excel->getActiveSheet()->setCellValue('F' . $a, $item->shop_name);                           //店铺
-                $excel->getActiveSheet()->setCellValue('G' . $a, $item->single_task_capital);                 //本金
-                $excel->getActiveSheet()->setCellValue('H' . $a, $item->real_task_capital);                   //实付金额
+                $excel->getActiveSheet()->setCellValue('G' . $a, isset($item->single_task_capital) ? $item->single_task_capital : 0);                 //本金
+                $excel->getActiveSheet()->setCellValue('H' . $a, isset($item->real_task_capital) ? $item->real_task_capital : 0);                   //实付金额
                 $excel->getActiveSheet()->setCellValue('I' . $a, $item->single_task_commission_paid + $item->service_to_platform);              //佣金
                 $excel->getActiveSheet()->setCellValue('J' . $a, $item->start_time);                          //放单时间
                 $excel->getActiveSheet()->setCellValue('K' . $a, $item->buyer_tb_nick);                       //接单账号
                 $excel->getActiveSheet()->setCellValue('L' . $a, $item->gmt_taking_task);                     //接单时间
                 $excel->getActiveSheet()->setCellValue('M' . $a, $task_status[$item->status]);                //订单状态
-                $excel->getActiveSheet()->setCellValue('N' . $a, ' ' . $item->order_number);                  //订单编号
+                $excel->getActiveSheet()->setCellValue('N' . $a, ' ' . (isset($item->order_number) ? $item->order_number : ''));                  //订单编号
                 $excel->getActiveSheet()->setCellValue('O' . $a, $express_type);                               //快递方式
-                $excel->getActiveSheet()->setCellValue('P' . $a, ' ' . $item->express_number);                //快递单号
+                $excel->getActiveSheet()->setCellValue('P' . $a, ' ' . (isset($item->express_number) ? $item->express_number : ''));                //快递单号
+                $excel->getActiveSheet()->setCellValue('Q' . $a, $item->true_name); 
+                $excel->getActiveSheet()->setCellValue('R' . $a, $item->bank_card_num);
+                $excel->getActiveSheet()->setCellValue('S' . $a, $item->bank_name);  
+                $excel->getActiveSheet()->setCellValue('T' . $a, $item->bank_branch); 
+                $excel->getActiveSheet()->setCellValue('U' . $a, $item->bank_province); 
+                $excel->getActiveSheet()->setCellValue('V' . $a, $item->bank_city); 
                 $a++;
             }
             //输出到浏览器
@@ -377,6 +381,21 @@ class Task extends Hilton_Controller
         $this->Data['TargetPage'] = 'page_jies_liuliang';
         $this->Data['nick_info'] = $this->hiltoncore->get_user_cert_info($buyer_id);
         $this->load->view('frame_main', $this->Data);
+    }
+    /**
+     * 批量打款
+     * @return [type] [description]
+     */
+    public function pjie(){
+        $task_id = $this->input->post('task_id', TRUE);
+        if (empty($task_id)) {
+            die(build_response_str(CODE_BAD_REQUEST, "非法请求"));
+        }
+        if($this->taskengine->upp_task_status($task_id)){
+            die(build_response_str(CODE_SUCCESS, "批量更新成功"));
+        }else{
+            die(build_response_str(CODE_PAY_FAILED, "失败，请重新处理"));
+        }
     }
     public function pub_dt()
     {
