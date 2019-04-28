@@ -173,6 +173,7 @@ class Task extends Hilton_Controller
                 10 => '好评审核不通过',
                 11 => '已完成',
                 99 => '已撤',
+                16 => '待打款',
             ];
             $a = 2;
             foreach($data['data'] as $i=>$item){
